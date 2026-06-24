@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BTC-PERPETUAL</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="myChart"></canvas>
+
+    <script>
+        // Fetch data from your Django endpoint
+        fetch("/api/deribit/")
+            .then(response => response.json())
+            .then(data => {
+                new Chart(document.getElementById("myChart"), {
+                    type: "line",
+                    data: {
+                        labels: data.ticks,
+                        datasets: [{
+                            label: "BTC-PERPETUAL Close Price",
+                            data: data.close,
+                        }]
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
