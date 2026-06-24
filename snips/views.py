@@ -118,6 +118,7 @@ def leaderboard(request):
     return render(request, 'snips/leaderboard.html', context)
 
 
+# accesses Deribit's data:
 
 import requests
 import time
@@ -136,3 +137,11 @@ def deribit(request):
     response = requests.get(url, params=params)
     data = response.json()["result"]
     return JsonResponse(data, safe=False)
+
+
+# serves the html file when someone visits the chart page:
+
+from django.shortcuts import render
+
+def deribit_chart(request):
+    return render(request, "chart.html")

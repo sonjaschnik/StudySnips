@@ -14,3 +14,8 @@ urlpatterns = [
     # ... existing paths ...
     path("api/deribit/", views.deribit),
 ]
+
+
+urlpatterns = [
+path("api/deribit/chart/", views.deribit_chart),
+]
