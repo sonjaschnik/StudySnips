@@ -6,16 +6,6 @@ urlpatterns = [
     path('leaderboard/', views.leaderboard, name='leaderboard'),
     path('api/chart', views.api_chart_data, name='chart_data'),
     path('chart/', views.chart_page, name='chart_page'),
-]
-
-from . import views
-
-urlpatterns = [
-    # ... existing paths ...
     path("api/deribit/", views.deribit),
-]
-
-
-urlpatterns = [
-path("api/deribit/chart/", views.deribit_chart),
+    path("api/deribit/chart/", views.deribit_chart),
 ]
