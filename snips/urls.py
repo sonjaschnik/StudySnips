@@ -7,3 +7,10 @@ urlpatterns = [
     path('api/chart', views.api_chart_data, name='chart_data'),
     path('chart/', views.chart_page, name='chart_page'),
 ]
+
+from . import views
+
+urlpatterns = [
+    # ... existing paths ...
+    path("api/deribit/", views.deribit),
+]
