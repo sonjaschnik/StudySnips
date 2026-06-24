@@ -116,3 +116,23 @@ def leaderboard(request):
         'error_message': error_message,
     }
     return render(request, 'snips/leaderboard.html', context)
+
+
+
+import requests
+import time
+
+def deribit(request):
+
+    url = "https://www.deribit.com/api/v2/public/get_tradingview_chart_data"
+
+    params = {
+     "instrument_name": "BTC-PERPETUAL",
+     "start_timestamp": 1451606400000,  # 2016-01-01
+     "end_timestamp":   int(time.time() * 1000),  # now
+     "resolution":      "60",
+    }
+
+    response = requests.get(url, params=params)
+    data = response.json()["result"]
+    return JsonResponse(data, safe=False)
