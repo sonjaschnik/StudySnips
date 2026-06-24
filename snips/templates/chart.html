@@ -16,10 +16,24 @@
                     type: "line",
                     data: {
                         labels: data.ticks,
-                        datasets: [{
-                            label: "BTC-PERPETUAL Close Price",
-                            data: data.close,
-                        }]
+                        datasets: [
+                            {
+                                label: "Close",
+                                data: data.close,
+                            },
+                            {
+                                label: "Open",
+                                data: data.open,
+                            },
+                            {
+                                label: "High",
+                                data: data.high,
+                            },
+                            {
+                                label: "Low",
+                                data: data.low,
+                            }
+                        ]
                     }
                 });
             });
